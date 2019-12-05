@@ -1,11 +1,31 @@
 package com.github.ymaniz09.notekeeper.model
 
-class DataManager {
+object DataManager {
     val courses = HashMap<String, CourseInfo>()
-    private val notes = ArrayList<NoteInfo>()
+    val notes = ArrayList<NoteInfo>()
 
     init {
         initializeCourses()
+        initializeNotes()
+    }
+
+    private fun initializeNotes() {
+        var note = courses["android_intents"]?.let {
+            NoteInfo(
+                it,
+                "Learning Android Intents",
+                "Simple note"
+            )
+        }
+        if (note != null) {
+            notes.add(note)
+        }
+
+        note =
+            courses["android_async"]?.let { NoteInfo(it, "Learning AsyncTasks", "Simple note 2") }
+        if (note != null) {
+            notes.add(note)
+        }
     }
 
     private fun initializeCourses() {
