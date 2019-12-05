@@ -1,7 +1,7 @@
 package com.github.ymaniz09.notekeeper.model
 
 class DataManager {
-    private val courses = HashMap<String, CourseInfo>()
+    val courses = HashMap<String, CourseInfo>()
     private val notes = ArrayList<NoteInfo>()
 
     init {
